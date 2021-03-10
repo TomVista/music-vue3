@@ -1,19 +1,22 @@
-# weibo-vue
+# 网易云音乐vue3重构版
 
-## Project setup
-```
-npm install
-```
+作为vue面试项目
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 技术栈
 
-### Compiles and minifies for production
-```
-npm run build
-```
+vue3 全家桶 , TypeScript
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 进度
+
+### 2021年3月10日
+
+从0开始vue3和TypeScript,完成项目基础搭建,
+* banner展示
+* 首页入口
+* 推荐歌单
+
+
+## 鸣谢
+
+[Binaryify](https://github.com/Binaryify/NeteaseCloudMusicApi) 开源的网易云音乐api库：NeteaseCloudMusicApi
+
