@@ -6,9 +6,13 @@
 
 vue3 全家桶 , TypeScript
 
+需要配合[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)使用
+
 ## 进度
 
 ### 2021年3月10日
+
+耗时大约8小时
 
 从0开始vue3和TypeScript,完成项目基础搭建,
 * banner展示
