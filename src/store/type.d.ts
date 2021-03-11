@@ -1,0 +1,34 @@
+export declare interface UserProfile {
+    "experts": any;
+    "mutual": boolean;
+    "remarkName": string;
+    "djStatus": number;
+    "userId": number;
+    "expertTags": string;
+    "authStatus": number;
+    "city": number;
+    "backgroundImgId": number;
+    "province": number;
+    "avatarUrl": string;
+    "defaultAvatar": boolean;
+    "nickname": string;
+    "avatarImgId": number;
+    "birthday": number;
+    "accountStatus": number;
+    "vipType": number; "gender": number;
+    "detailDescription": string; "followed": boolean;
+    "backgroundUrl": string;
+    "description": string;
+    "avatarImgIdStr": string;
+    "backgroundImgIdStr": string;
+    "userType": number;
+    "signature": string;
+    "authority": number;
+    "avatarImgId_str": string;
+    "followeds": number;
+    "follows": number;
+    "eventCount": number;
+    "avatarDetail": string;
+    "playlistCount": number;
+    "playlistBeSubscribedCount": number;
+}
