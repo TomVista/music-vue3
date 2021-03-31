@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import { storeSymbol,createStore} from '@/store/reactiveStates';
 
-axios.defaults.baseURL='http://192.168.0.108:3000/'
+axios.defaults.baseURL='http://127.0.0.1:3000/'
 axios.defaults.withCredentials=true
 
 const app =createApp(App)

@@ -2,12 +2,23 @@ const path = require('path')
 
 module.exports = {
     configureWebpack: {
+        module: {
+            rules: [
+                {
+                    test: /\.jsx$/,
+                    use: ["@ant-design-vue/vue-jsx-hot-loader"],
+                },
+            ],
+        },
+
         resolve: {
             alias: {
                 '@styles': path.resolve(__dirname, 'src', 'styles'),
-                '@icon':path.resolve(__dirname, 'src', 'assets','icon'),
+                '@icon': path.resolve(__dirname, 'src', 'assets', 'icon'),
             }
-        }
+        },
+        stats: {
+            all: true,
+        },
     }
-
 }

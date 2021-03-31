@@ -20,7 +20,6 @@ import HomeMenu from "./menu/menu.vue";
 import LoginLoading from "./loginLoading.vue";
 import axios from "axios";
 import { useStore, Store } from "@/store/reactiveStates";
-import { UserProfile } from "@/store/type";
 
 @Options({
   components: {

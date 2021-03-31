@@ -35,7 +35,7 @@ export default class Tabbar extends Vue {
       name: "我的",
       icon: require("@/assets/icon/tabbar/search.png"),
       activeIcon: require("@/assets/icon/tabbar/search.png"),
-      path: "/search",
+      path: "/user",
     },
     {
       name: "K歌",
