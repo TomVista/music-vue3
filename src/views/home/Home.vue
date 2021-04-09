@@ -19,7 +19,7 @@ import Tabbar from "./tabbar/tabbar.vue";
 import HomeMenu from "./menu/menu.vue";
 import LoginLoading from "./loginLoading.vue";
 import axios from "axios";
-import { useStore, Store } from "@/store/reactiveStates";
+import { useStore } from "@/store";
 
 @Options({
   components: {
@@ -33,7 +33,7 @@ export default class Home extends Vue {
   showLoginLoading = true;
   loadingTitle = "加载中...";
 
-  store = setup(() => useStore()) as Store;
+  store = setup(() => useStore());
 
   async mounted() {
     const user = localStorage.getItem("user");

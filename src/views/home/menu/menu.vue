@@ -30,7 +30,7 @@ import { Options, Vue, setup } from "vue-class-component";
 import Card from "@/components/card.vue";
 import List from "@/components/list.vue";
 import ListItem from "@/components/listItem.vue";
-import { useStore, Store } from "@/store/reactiveStates";
+import { useStore } from "@/store";
 
 @Options({
   components: {
@@ -43,7 +43,7 @@ import { useStore, Store } from "@/store/reactiveStates";
 export default class Menu extends Vue {
   store = setup(() => {
     return useStore();
-  }) as Store;
+  });
 
   get isLogin() {
     return !!this.store.state.user;

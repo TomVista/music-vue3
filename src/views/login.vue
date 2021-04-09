@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="logo">
-      <img src="@icon/logo.png" alt="" />
+      <img src="@icon/logo.png" alt="logo" />
     </div>
     <div class="content">
       <input class="login-input" placeholder="手机号" v-model="username" />
@@ -24,14 +24,14 @@
           v-if="agreementSelected"
           class="select"
           src="@icon/login/selected.png"
-          alt=""
+          alt="selected"
           @click="unselect"
         />
         <img
           v-else
           class="select"
           src="@icon/login/unselect.png"
-          alt=""
+          alt="unselect"
           @click="select"
         />
         <span
@@ -46,7 +46,7 @@
 import { Options, setup, Vue, prop } from "vue-class-component";
 import axios from "axios";
 
-import { useStore, Store } from "@/store/reactiveStates";
+import { useStore } from "@/store";
 
 class Props {
   test = prop<number>({ default: 1 });
@@ -60,7 +60,7 @@ export default class Login extends Vue.with(Props) {
 
   store = setup(() => {
     return useStore();
-  }) as Store;
+  });
 
   get name() {
     return this.store.state.counter + this.test;

@@ -1,16 +1,15 @@
-import { createApp,reactive } from 'vue'
+import { createApp, reactive } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import axios from 'axios'
 
-import { storeSymbol,createStore} from '@/store/reactiveStates';
+import { storeSymbol, createStore } from '@/store';
 
-axios.defaults.baseURL='http://127.0.0.1:3000/'
-axios.defaults.withCredentials=true
+axios.defaults.baseURL = 'http://127.0.0.1:3000/'
+axios.defaults.withCredentials = true
 
-const app =createApp(App)
+const app = createApp(App)
 
-app.provide(storeSymbol,createStore())
+app.provide(storeSymbol, createStore())
 
-app.use(store).use(router).mount('#app')
+app.use(router).mount('#app')

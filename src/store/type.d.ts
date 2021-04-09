@@ -16,7 +16,8 @@ export declare interface UserProfile {
     "birthday": number;
     "accountStatus": number;
     "vipType": number; "gender": number;
-    "detailDescription": string; "followed": boolean;
+    "detailDescription": string;
+    "followed": boolean;
     "backgroundUrl": string;
     "description": string;
     "avatarImgIdStr": string;

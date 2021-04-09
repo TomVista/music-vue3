@@ -1,34 +1,30 @@
-import { InjectionKey } from 'vue'
-import { createStore, Store } from 'vuex'
+import { reactive, provide, inject, readonly } from 'vue';
+import { UserProfile } from './type'
 
-export interface State {
-  count: number
+
+export const storeSymbol = Symbol('store');
+
+export const createStore = () => {
+    const state = reactive({ counter: 0, user: null as UserProfile | null });
+
+
+    const increment = () => state.counter++;
+    const setUser = (user: UserProfile | null) => {
+        state.user = user
+    }
+
+    return { mutations: { increment, setUser }, state: readonly(state) };
 }
 
-// define injection key
-export const key: InjectionKey<Store<State>> = Symbol()
+export declare type Store = ReturnType<typeof createStore>
 
-export const store = createStore<State>({
-  state: {
-    count: 0
-  }
-})
 
-export default createStore({
-  state: {
-    userProfile: null,
-    token: null
-  },
-  mutations: {
-    setUserProfile(state, value) {
-      state.userProfile = value
-    },
-    setToken(state, value) {
-      state.token = value
-    },
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+export const provideStore = () => provide(
+    storeSymbol,
+    createStore()
+);
+
+export const useStore = () => inject<Store>(storeSymbol) as Store;
+
+
+/// doc https://dev.to/blacksonic/you-might-not-need-vuex-with-vue-3-52e4
