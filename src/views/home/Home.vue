@@ -6,9 +6,16 @@
       alt=""
       @click="openMenu"
     />
-    <home-menu v-show="showMenu" @close="closeMenu" />
-    <router-view class="content" />
+
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component class="content" :is="Component" />
+      </keep-alive>
+    </router-view>
+
     <tabbar class="tabbar" />
+
+    <home-menu v-show="showMenu" @close="closeMenu" />
     <login-loading v-show="showLoginLoading" :title="loadingTitle" />
   </div>
 </template>

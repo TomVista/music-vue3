@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import { storeSymbol, createStore } from '@/store';
 
-axios.defaults.baseURL = 'http://127.0.0.1:3000/'
+axios.defaults.baseURL = 'https://music-vue3.vercel.app/'
 axios.defaults.withCredentials = true
 
 const app = createApp(App)

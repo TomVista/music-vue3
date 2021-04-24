@@ -1,6 +1,10 @@
 <template>
   <div class="main">
-    <router-view class="page-content" />
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component class="page-content" :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 <script lang="ts">

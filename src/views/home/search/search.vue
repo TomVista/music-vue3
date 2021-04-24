@@ -17,6 +17,7 @@ import Entrance from "./entrance/entrance.vue";
 import RecommendSong from "./recommendedSong/recommendedSong.vue";
 
 @Options({
+  name:"HomeSrarch",
   components: {
     SearchHeader,
     Banner,
@@ -24,7 +25,11 @@ import RecommendSong from "./recommendedSong/recommendedSong.vue";
     RecommendSong,
   },
 })
-export default class Search extends Vue {}
+export default class Search extends Vue {
+  created(){
+    console.log('search created')
+  }
+}
 </script>
 
 <style lang='scss' scope>

@@ -5,7 +5,7 @@ module.exports = {
         module: {
             rules: [
                 {
-                    test: /\.jsx$/,
+                    test: /\.jsx$|\.tsx$/,
                     use: ["@ant-design-vue/vue-jsx-hot-loader"],
                 },
             ],

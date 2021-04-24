@@ -4,7 +4,7 @@ import Login from '@/views/login.vue'
 
 import Home from '@/views/home/Home.vue'
 import Search from '@/views/home/search/search.vue'
-import { User } from '@/views/home/user/user'
+import User from '@/views/home/user/user'
 
 
 

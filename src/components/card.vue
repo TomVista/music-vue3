@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="title">{{ title }}</div>
+    <div v-if="title" class="title">{{ title }}</div>
     <slot />
   </div>
 </template>
@@ -21,16 +21,15 @@ export default class Card extends Vue.with(Props) {}
 
   border-radius: 8px;
 
-  padding-left: 10px;
-  padding-right: 10px;
-
-  padding-bottom: 10px;
+  padding: 10px 10px;
 
   .title {
     height: 30px;
     line-height: 30px;
 
     font-size: 12px;
+
+    margin-top: -10px;
 
     color: gray;
     border-bottom: 1px solid #efefef;
