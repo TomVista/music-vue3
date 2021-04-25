@@ -14,7 +14,7 @@ export default defineComponent({
     },
     render() {
         return (
-            <Card>music-applaction</Card>
+            <Card class="user-menue">music-applaction</Card>
         )
     }
 })

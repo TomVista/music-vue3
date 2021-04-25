@@ -4,7 +4,7 @@
       class="icon icon-menu"
       src="@icon/home/menu.png"
       alt=""
-      @click="openMenu"
+      @click="$refs.homeMenu.show"
     />
 
     <router-view v-slot="{ Component }">
@@ -15,7 +15,8 @@
 
     <tabbar class="tabbar" />
 
-    <home-menu v-show="showMenu" @close="closeMenu" />
+    <home-menu ref="homeMenu" />
+
     <login-loading v-show="showLoginLoading" :title="loadingTitle" />
   </div>
 </template>
@@ -36,7 +37,10 @@ import { useStore } from "@/store";
   },
 })
 export default class Home extends Vue {
-  showMenu = false;
+  $refs!: {
+    homeMenu: HomeMenu;
+  };
+
   showLoginLoading = true;
   loadingTitle = "加载中...";
 
@@ -65,14 +69,6 @@ export default class Home extends Vue {
 
   closeLoading() {
     this.showLoginLoading = false;
-  }
-
-  closeMenu() {
-    this.showMenu = false;
-  }
-
-  openMenu() {
-    this.showMenu = true;
   }
 
   cleanLogin() {

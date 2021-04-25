@@ -1,28 +1,30 @@
 <template>
-  <div class="menu" @click.self="close">
-    <div class="menu-content">
-      <div class="user-info">
-        <img
-          class="icon user-avatar"
-          :src="
-            isLogin
-              ? store.state.user.avatarUrl
-              : require('@icon/home/user.png')
-          "
-          alt=""
-        />
-        <div class="name" @click="toLogin">
-          {{ isLogin ? store.state.user.nickname : "立即登录" }}
-          <img class="icon right" src="@icon/home/right.png" />
+  <transition name="menu">
+    <div v-show="visible" class="menu" @click.self="close">
+      <div class="menu-content">
+        <div class="user-info">
+          <img
+            class="icon user-avatar"
+            :src="
+              isLogin
+                ? store.state.user.avatarUrl
+                : require('@icon/home/user.png')
+            "
+            alt=""
+          />
+          <div class="name" @click="toLogin">
+            {{ isLogin ? store.state.user.nickname : "立即登录" }}
+            <img class="icon right" src="@icon/home/right.png" />
+          </div>
+          <img class="icon scan" src="@icon/home/scan.png" alt="" />
         </div>
-        <img class="icon scan" src="@icon/home/scan.png" alt="" />
-      </div>
 
-      <card class="quick" title="音乐服务">
-        <list-item icon="right" title="云村有票" />
-      </card>
+        <card class="quick" title="音乐服务">
+          <list-item icon="right" title="云村有票" />
+        </card>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script lang='ts'>
@@ -38,12 +40,13 @@ import { useStore } from "@/store";
     List,
     ListItem,
   },
-  emits: ["close"],
 })
 export default class Menu extends Vue {
   store = setup(() => {
     return useStore();
   });
+
+  visible = false;
 
   get isLogin() {
     return !!this.store.state.user;
@@ -56,8 +59,12 @@ export default class Menu extends Vue {
     this.$router.push("/login");
   }
 
+  show() {
+    this.visible = true;
+  }
+
   close() {
-    this.$emit("close");
+    this.visible = false;
   }
 }
 </script>
@@ -72,6 +79,7 @@ export default class Menu extends Vue {
   background: rgba(0, 0, 0, 0.6);
 
   z-index: 9;
+
   .menu-content {
     width: 70%;
     height: 100%;
@@ -114,6 +122,23 @@ export default class Menu extends Vue {
     .quick {
       margin-top: 15px;
     }
+  }
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 0.3s ease;
+  opacity: 0;
+  .menu-content {
+    transition: all 0.3s ease;
+    transform: translateX(-100%);
+  }
+}
+
+.menu-enter-to {
+  opacity: 1;
+  .menu-content {
+    transform: translateX(0);
   }
 }
 </style>
